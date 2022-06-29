@@ -1,17 +1,32 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
-// https://github.com/microsoft/vscode-dev-containers/tree/v0.183.0/containers/sfdx-project
+// https://github.com/microsoft/vscode-dev-containers/tree/main/containers/sfdx-project
 {
   "name": "Salesforce Project",
   "dockerFile": "Dockerfile",
-  "extensions": [
-    "salesforce.salesforcedx-vscode-expanded",
-    "financialforce.lana",
-    "redhat.vscode-xml",
-    "dbaeumer.vscode-eslint",
-    "esbenp.prettier-vscode"
-  ],
-  "settings": {
-    "salesforcedx-vscode-apex.java.home": "/usr/lib/jvm/java-11-openjdk-amd64"
+
+  // Configure tool-specific properties.
+  "customizations": {
+    // Configure properties specific to VS Code.
+    "vscode": {
+      // Set *default* container specific settings.json values on container create.
+      "settings": {
+        "salesforcedx-vscode-apex.java.home": "/usr/lib/jvm/java-11-openjdk-amd64"
+      },
+
+      // Add the IDs of extensions you want installed when the container is created.
+      "extensions": [
+        "salesforce.salesforcedx-vscode",
+        "financialforce.lana",
+        "redhat.vscode-xml",
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode"
+      ]
+    }
   },
-  "runArgs": ["npm install"]
+
+  // Use 'forwardPorts' to make a list of ports inside the container available locally.
+  // "forwardPorts": [],
+
+  // Use 'postCreateCommand' to run commands after the container is created.
+  "postCreateCommand": "npm install"
 }
