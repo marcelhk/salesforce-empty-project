@@ -1,14 +1,14 @@
 FROM salesforce/salesforcedx:latest-full
 
-# Install python dependencies for CumulusCI
-RUN apt-get update \
-    && apt-get install -y --no-install-recommends \
-    python3.8 \
-    python3-pip \
-    python3-venv \
-    && rm -rf /var/lib/apt/lists/* \
-    && python3 -m pip install --user pipx \
-    && python3 -m pipx ensurepath
+## Install python dependencies for CumulusCI
+#RUN apt-get update \
+#    && apt-get install -y --no-install-recommends \
+#    python3.8 \
+#    python3-pip \
+#    python3-venv \
+#    && rm -rf /var/lib/apt/lists/* \
+#    && python3 -m pip install --user pipx \
+#    && python3 -m pipx ensurepath
 
 # Default the NODE_ENV as "development"
 ENV NODE_ENV=development
@@ -28,11 +28,11 @@ RUN npm install --global prettier prettier-plugin-apex
 # Install the sfdx-lwc-jest
 RUN npm install --global @salesforce/sfdx-lwc-jest
 
-# Install CumulusCI
-RUN ~/.local/bin/pipx install cumulusci
+## Install CumulusCI
+#RUN ~/.local/bin/pipx install cumulusci
 
-# Generate random 16 character encryption key for CumulusCI's local storage of sensitive information
-RUN touch ~/.profile && echo export CUMULUSCI_KEY=$(dd if=/dev/urandom bs=12 count=1 2>/dev/null | base64 | sed 's/=//g') >> ~/.profile
+## Generate random 16 character encryption key for CumulusCI's local storage of sensitive information
+#RUN touch ~/.profile && echo export CUMULUSCI_KEY=$(dd if=/dev/urandom bs=12 count=1 2>/dev/null | base64 | sed 's/=//g') >> ~/.profile
 
 # Update Salesforce CLI
 RUN sfdx update
