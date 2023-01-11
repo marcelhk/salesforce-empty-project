@@ -10,7 +10,7 @@ FROM salesforce/salesforcedx:latest-full
 #    && python3 -m pip install --user pipx \
 #    && python3 -m pipx ensurepath
 
-# Default the NODE_ENV as "development"
+# Ensure that NODE_ENV is "development"
 ENV NODE_ENV=development
 
 # Install PMD
@@ -33,12 +33,3 @@ RUN npm install --global @salesforce/sfdx-lwc-jest
 
 ## Generate random 16 character encryption key for CumulusCI's local storage of sensitive information
 #RUN touch ~/.profile && echo export CUMULUSCI_KEY=$(dd if=/dev/urandom bs=12 count=1 2>/dev/null | base64 | sed 's/=//g') >> ~/.profile
-
-# Update Salesforce CLI
-RUN sfdx update
-
-# Install LWC Local Development Server
-# RUN sfdx plugins:install @salesforce/lwc-dev-server
-
-# Update Salesforce CLI plugins
-RUN sfdx plugins:update
