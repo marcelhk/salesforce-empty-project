@@ -23,7 +23,7 @@
     "@salesforce/eslint-plugin-lightning": "^1.0.0",
     "@salesforce/sfdx-lwc-jest": "^1.2.1",
     "eslint": "^8.31.0",
-    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-import": "^2.27.0",
     "eslint-plugin-jest": "^24.3.6",
     "husky": "^7.0.0",
     "lint-staged": "^11.0.0",
