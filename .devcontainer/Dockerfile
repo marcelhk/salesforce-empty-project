@@ -14,9 +14,9 @@ FROM salesforce/cli:latest-full
 ENV PMD_VERSION "7.0.0-rc4"
 ENV PMD_DIR "/bin/pmd/"
 RUN mkdir -p "${PMD_DIR}" \
-    && wget -P /tmp/ https://github.com/pmd/pmd/releases/download/pmd_releases/${PMD_VERSION}/pmd-dist-${PMD_VERSION}-bin.zip \
-    && unzip /tmp/pmd-bin-${PMD_VERSION}.zip -d /tmp \
-    && rm /tmp/pmd-bin-${PMD_VERSION}.zip \
+    && wget -O /tmp/pmd-${PMD_VERSION}.zip https://github.com/pmd/pmd/releases/download/pmd_releases/${PMD_VERSION}/pmd-dist-${PMD_VERSION}-bin.zip \
+    && unzip /tmp/pmd-${PMD_VERSION}.zip -d /tmp \
+    && rm /tmp/pmd-${PMD_VERSION}.zip \
     && mv /tmp/pmd-bin-${PMD_VERSION}/* ${PMD_DIR}
 
 ## Install CumulusCI
